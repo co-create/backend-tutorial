@@ -1,19 +1,8 @@
   version: '3'
 
   services:
-    api:
-      build: .
-      command: python manage.py runserver 0.0.0.0:8000
-      volumes:
-        - .:/code
-      ports:
-        - "8000:8000"
     nginx:
       image: nginx:1.17-alpine
-      depends_on:
-        - api
-      links:
-        - api
       restart: unless-stopped
       volumes:
         - ./data/nginx:/etc/nginx/conf.d
