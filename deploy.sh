@@ -31,14 +31,14 @@ then
 elif [ $ARG = "dev" ]
 then
     echo "Deploying Development...";
-    sudo docker-compose -f docker-compose.dev.yml down;
-    sudo docker-compose -f docker-compose.dev.yml up -d;
+    docker-compose -f docker-compose.dev.yml down;
+    docker-compose -f docker-compose.dev.yml up -d;
     if [ -z $ARG_2 ]
     then
         echo "Finished";
     elif [ $ARG_2 = "-f" ]
     then
-        sudo docker-compose -f docker-compose.dev.yml logs -f;
+        docker-compose -f docker-compose.dev.yml logs -f;
     fi
 elif [ $ARG = "cert" ]
 then
