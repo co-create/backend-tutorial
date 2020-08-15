@@ -3,7 +3,6 @@ USAGE=\
 "USAGE:\n\n"\
 "\tdev:\t\tstart backend server w/ containerized database\n"\
 "\tprod:\t\tstart backend server w/ containerized database, nginx, tls\n"\
-"\tcert:\t\tgenerate https certificates\n"\
 "\tlogs:\t\tstart logging\n"
 
 ARG=$1
@@ -40,10 +39,6 @@ then
     then
         sudo docker-compose -f docker-compose.dev.yml logs -f;
     fi
-elif [ $ARG = "cert" ]
-then
-    echo "Configuring Security Certificates...";
-    sudo ./init-letsencrypt.sh
 elif [ $ARG = "logs" ]
 then
     echo "Running Logs...";
