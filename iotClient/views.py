@@ -10,6 +10,7 @@ def index(request):
     print("Client Index")
     return HttpResponse("Client Index")
 
+@csrf_exempt
 def submitData(request):
     if request.method == "GET":
         sensor_data = Sensor.objects.all()
